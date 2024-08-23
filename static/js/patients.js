@@ -1,10 +1,10 @@
 console.log("Conectado...")
 
-const urlApi = "http://localhost:8080/patients"
+const urlApi = "https://apipage-production-f781.up.railway.app/patients"
 
 
 function ValidateSession(){
-    fetch("http://localhost:8080/validate",{
+    fetch("https://apipage-production-f781.up.railway.app/validate",{
         method: "GET",
         credentials: "include"
     })
@@ -48,7 +48,7 @@ function DeletePatients(){
 }
 
 function loadPatientDataApp(id){
-    fetch(`http://localhost:8080/patients/${id}`,{
+    fetch(`https://apipage-production-f781.up.railway.app/patients/${id}`,{
         credentials: "include",
     })
     .then(response =>{
@@ -65,7 +65,7 @@ function loadPatientDataApp(id){
 }
 
 function loadPatientData(id){
-    fetch(`http://localhost:8080/patients/${id}`,{
+    fetch(`https://apipage-production-f781.up.railway.app/patients/${id}`,{
         credentials: "include",
     })
     .then(response =>{
@@ -114,7 +114,7 @@ function EditPatients(){
 
             console.log("PATIENT EDIT DATA: ", patientData)
 
-            fetch(`http://localhost:8080/edit/${idpatient}`,{
+            fetch(`https://apipage-production-f781.up.railway.app/edit/${idpatient}`,{
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"},
@@ -201,7 +201,7 @@ function CreatePatient(){
 
             console.log(fullnameP,emailP,dniP,phoneP)
 
-            fetch(`http://localhost:8080/create`,{
+            fetch(`https://apipage-production-f781.up.railway.app/create`,{
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"},
@@ -269,7 +269,7 @@ function CreateAppointment(){
     })
 
     function fetchAvilableHours(date){
-        fetch(`http://localhost:8080/available-hours?fecha=${date}`)
+        fetch(`https://apipage-production-f781.up.railway.app/available-hours?fecha=${date}`)
         .then(response => response.json())
         .then(data => {
             console.log(data)
@@ -332,7 +332,7 @@ function CreateAppointment(){
                 motivoconsulta: motivocons,
             }
 
-            fetch(`http://localhost:8080/create-appointment`,{
+            fetch(`https://apipage-production-f781.up.railway.app/create-appointment`,{
                 method: "POST",
                 headers:{
                     "Content-Type": "application/json"
@@ -445,7 +445,7 @@ function searchPatient(){
         const query = searchInput.value
 
         if(query.length > 0){
-            fetch(`http://localhost:8080/search-patient?p=${encodeURIComponent(query)}`)
+            fetch(`https://apipage-production-f781.up.railway.app/search-patient?p=${encodeURIComponent(query)}`)
                 .then(response => response.json())
                 .then(data => {
                     resultList.innerHTML = "";
