@@ -40,7 +40,7 @@ function CancelAppointments(){
     if(button){
         button.addEventListener("click", function(e){
             
-            fetch(`http://localhost:8080/cancel-appointment`)
+            fetch(`https://apipage-production-f781.up.railway.app/cancel-appointment`)
         })
     }
 }
