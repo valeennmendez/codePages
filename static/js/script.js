@@ -20,7 +20,7 @@ function CountPatients(){
     const contadorPatients = document.getElementById("totalPatients")
         
     if(contadorPatients){
-        fetch(`http://localhost:8080/total-patients`,{
+        fetch(`https://apipage-production-f781.up.railway.app/total-patients`,{
             credentials: "include",
         })
         .then(response =>{
