@@ -2,7 +2,7 @@ console.log("Conectado...")
 
 function GetAllAppointments(){
 
-    fetch(`http://localhost:8080/appointments`,{
+    fetch(`https://apipage-production-f781.up.railway.app/appointments`,{
         method: "GET",
         credentials: "include"
     })
@@ -53,7 +53,7 @@ function SearchPatientsForm(){
       const query = this.value;
     
       if (query.length > 1) {
-        fetch(`http://localhost:8080/search-patient?p=${encodeURIComponent(query)}`)
+        fetch(`https://apipage-production-f781.up.railway.app/search-patient?p=${encodeURIComponent(query)}`)
           .then(response => response.json())
           .then(data => {
             autocompleteList.innerHTML = "";
@@ -131,7 +131,7 @@ function AddNewAppointment(){
 
     console.log(appointmentData)
 
-    fetch(`http://localhost:8080/create-appointment`,{
+    fetch(`https://apipage-production-f781.up.railway.app/create-appointment`,{
       method: "POST",
       headers:{
         "Content-Type": "application/json",
@@ -171,7 +171,7 @@ function LoadHours(){
 
 
   function fetchAvilableHours(date){
-      fetch(`http://localhost:8080/available-hours?fecha=${date}`)
+      fetch(`https://apipage-production-f781.up.railway.app/available-hours?fecha=${date}`)
       .then(response => response.json())
       .then(data => {
           console.log(data)
@@ -201,7 +201,7 @@ function LoadHours(){
 }
 
 function ValidateSession(){
-  fetch("http://localhost:8080/validate",{
+  fetch("https://apipage-production-f781.up.railway.app/validate",{
       method: "GET",
       credentials: "include"
   })
