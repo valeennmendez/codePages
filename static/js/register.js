@@ -28,7 +28,7 @@ function Register(){
             phone: phone
         }
 
-        fetch(`http://localhost:8080/register`,{
+        fetch(`https://apipage-production-f781.up.railway.app/register`,{
             method: "POST",
             credentials: "include",
             headers:{
