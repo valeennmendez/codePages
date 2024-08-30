@@ -1,10 +1,10 @@
 console.log("Conectado...")
 
-const urlApi = "https://apipage-production-f781.up.railway.app/patients"
+const urlApi = "http://localhost:8080/patients"
 
 
 function ValidateSession(){
-    fetch("https://apipage-production-f781.up.railway.app/validate",{
+    fetch("http://localhost:8080/validate",{
         method: "GET",
         credentials: "include"
     })
@@ -48,7 +48,7 @@ function DeletePatients(){
 }
 
 function loadPatientDataApp(id){
-    fetch(`https://apipage-production-f781.up.railway.app/patients/${id}`,{
+    fetch(`http://localhost:8080/patients/${id}`,{
         credentials: "include",
     })
     .then(response =>{
@@ -65,7 +65,7 @@ function loadPatientDataApp(id){
 }
 
 function loadPatientData(id){
-    fetch(`https://apipage-production-f781.up.railway.app/patients/${id}`,{
+    fetch(`http://localhost:8080/patients/${id}`,{
         credentials: "include",
     })
     .then(response =>{
@@ -81,6 +81,27 @@ function loadPatientData(id){
         document.getElementById("phoneEdit").value = data.Phone
         document.getElementById("formContainerEdit").setAttribute("data-id", data.ID)
     })
+}
+
+
+function BarsMenu(){
+    const bars = document.getElementById("bars")
+    const containerMenu = document.querySelector(".barsMenu")
+    const close = document.getElementById("closeMenu")
+
+    if(bars){
+        bars.addEventListener("click", function(){
+            containerMenu.classList.add("active")
+        })
+    
+    }
+
+    if(close){
+        close.addEventListener("click", function(){
+            containerMenu.classList.remove("active")
+        })
+    }
+
 }
 
 function EditPatients(){
@@ -114,7 +135,7 @@ function EditPatients(){
 
             console.log("PATIENT EDIT DATA: ", patientData)
 
-            fetch(`https://apipage-production-f781.up.railway.app/edit/${idpatient}`,{
+            fetch(`http://localhost:8080/edit/${idpatient}`,{
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"},
@@ -201,7 +222,7 @@ function CreatePatient(){
 
             console.log(fullnameP,emailP,dniP,phoneP)
 
-            fetch(`https://apipage-production-f781.up.railway.app/create`,{
+            fetch(`http://localhost:8080/create`,{
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"},
@@ -269,7 +290,7 @@ function CreateAppointment(){
     })
 
     function fetchAvilableHours(date){
-        fetch(`https://apipage-production-f781.up.railway.app/available-hours?fecha=${date}`)
+        fetch(`http://localhost:8080/available-hours?fecha=${date}`)
         .then(response => response.json())
         .then(data => {
             console.log(data)
@@ -332,7 +353,7 @@ function CreateAppointment(){
                 motivoconsulta: motivocons,
             }
 
-            fetch(`https://apipage-production-f781.up.railway.app/create-appointment`,{
+            fetch(`http://localhost:8080/create-appointment`,{
                 method: "POST",
                 headers:{
                     "Content-Type": "application/json"
@@ -445,7 +466,7 @@ function searchPatient(){
         const query = searchInput.value
 
         if(query.length > 0){
-            fetch(`https://apipage-production-f781.up.railway.app/search-patient?p=${encodeURIComponent(query)}`)
+            fetch(`http://localhost:8080/search-patient?p=${encodeURIComponent(query)}`)
                 .then(response => response.json())
                 .then(data => {
                     resultList.innerHTML = "";
@@ -474,6 +495,8 @@ document.addEventListener("DOMContentLoaded",function(e){
     ValidateSession()
 
     loadPatients()
+
+    BarsMenu()
 
     EditPatients()
 

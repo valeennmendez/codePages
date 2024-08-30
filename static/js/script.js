@@ -1,10 +1,10 @@
 console.log("Conectado...")
 
-const urlApi = "https://apipage-production-f781.up.railway.app/patients"
+const urlApi = "http://localhost:8080/patients"
 
 
 function ValidateSession(){
-    fetch("https://apipage-production-f781.up.railway.app/validate",{
+    fetch("http://localhost:8080/validate",{
         method: "GET",
         credentials: "include"
     })
@@ -20,7 +20,7 @@ function CountPatients(){
     const contadorPatients = document.getElementById("totalPatients")
         
     if(contadorPatients){
-        fetch(`https://apipage-production-f781.up.railway.app/total-patients`,{
+        fetch(`http://localhost:8080/total-patients`,{
             credentials: "include",
         })
         .then(response =>{
@@ -30,7 +30,6 @@ function CountPatients(){
             return response.json()
         })
         .then(data =>{
-            console.log(data.total)
             contadorPatients.innerHTML = data.total
         })
         .catch(error => console.error(error))
@@ -41,7 +40,7 @@ function AppointmentToday(){
     const cantCitas = document.getElementById("totalCitas")
 
     if(cantCitas){
-        fetch(`https://apipage-production-f781.up.railway.app/appointment-today`,{
+        fetch(`http://localhost:8080/appointment-today`,{
             credentials: "include",
         })
         .then(response =>{
@@ -57,6 +56,24 @@ function AppointmentToday(){
     }
 }
 
+function AppointmentWeek(){
+    const cantAppointments = document.getElementById("appointmentsWeek")
+
+    fetch(`http://localhost:8080/appointments-week`,{
+        credentials: "include",
+    })
+        .then(response =>{
+            if(!response.ok){
+                console.error(response.json())
+            }
+            return response.json()
+        })
+        .then(data =>{
+            cantAppointments.innerHTML = data.count
+        })
+        .catch(error => console.error(error))
+}
+
 function CloseSession(){
     const closeSesion = document.getElementById("closesesion")
 
@@ -64,7 +81,7 @@ function CloseSession(){
         closeSesion.addEventListener("click", function(e){
             e.preventDefault()
 
-            fetch("https://apipage-production-f781.up.railway.app/logout",{
+            fetch("http://localhost:8080/logout",{
                 method: "POST",
                 credentials: "include"
             })
@@ -78,6 +95,27 @@ function CloseSession(){
             .catch(error => console.error(error))
         })
     }
+}
+
+
+function BarsMenu(){
+    const bars = document.getElementById("bars")
+    const containerMenu = document.querySelector(".barsMenu")
+    const close = document.getElementById("closeMenu")
+
+    if(bars){
+        bars.addEventListener("click", function(){
+            containerMenu.classList.add("active")
+        })
+    
+    }
+
+    if(close){
+        close.addEventListener("click", function(){
+            containerMenu.classList.remove("active")
+        })
+    }
+
 }
 
 document.addEventListener("DOMContentLoaded",function(e){
@@ -120,6 +158,10 @@ document.addEventListener("DOMContentLoaded",function(e){
         AppointmentToday()
 
         CloseSession()
+
+        AppointmentWeek()
+
+        BarsMenu()
 })
 
 
