@@ -25,9 +25,22 @@
                 <li class="dashboard active"><a href="#"><i class="fa-solid fa-house"></i>Dashboard</a></li>
                 <li><a href="patients.html"><i class="fa-solid fa-user-group"></i>Patients</a></li>
                 <li><a href="appoinments.html"><i class="fa-regular fa-calendar"></i>Appointments</a></li>
+                <li><a href="settings.html"><i class="fa-solid fa-gear"></i>Settings</a></li>
             </ul>
         </div>
     </div>
+
+    <div class="barsMenu">
+      <div class="barsOptions">
+        <a href="#" class="" id="closeMenu"><i class="fa-solid fa-xmark"></i></a>
+        <ul>
+            <li class="dashboard"><a href="#"><i class="fa-solid fa-house"></i>Dashboard</a></li>
+            <li><a href="patients.html"><i class="fa-solid fa-user-group"></i>Patients</a></li>
+            <li><a href="appoinments.html"><i class="fa-regular fa-calendar"></i>Appointments</a></li>
+            <li><a href="settings.html"><i class="fa-solid fa-gear"></i>Settings</a></li>
+        </ul>
+    </div>
+  </div>
 
     <div class="contenedor">
 
@@ -38,8 +51,11 @@
               <div class="iconDiv">
                 <a href=""><img src="/static/images/icon.png" id="icon" alt=""></a>
                 <span role="button" id="closesesion" class="closesesion">Cerrar Sesion</span>
+                <h5>¡Bienvenido Valentin!</h5>
               </div>
-              <h5>¡Bienvenido Valentin!</h5>
+              <div class="boxBars">
+                <i id="bars" class="fa-solid fa-bars"></i>
+              </div>
             </div>
         </nav>
 
@@ -62,9 +78,9 @@
         </div>
           <div class="cardd">
             <div class="card-body">
-              <h5 class="card-title">Upcoming Surgeries</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">The number of scheduled surgeries in the next 7 days.</h6>
-              <h2>6</h2>
+              <h5 class="card-title">Upcoming Appointments</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">The number of appointments scheduled in the next 7 days.</h6>
+              <h2 id="appointmentsWeek"></h2>
             </div>
         </div>
         </div>
@@ -85,7 +101,7 @@
             </table>
         </section>
       </div>
-        </div>  
+    </div>  
         
 
   <script src="https://kit.fontawesome.com/a8b1c63967.js" crossorigin="anonymous"></script>
