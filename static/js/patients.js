@@ -290,6 +290,7 @@ function CreateAppointment(){
     })
 
     function fetchAvilableHours(date){
+        ValidateSession()
         fetch(`https://apipage-production-f781.up.railway.app/available-hours?fecha=${date}`)
         .then(response => response.json())
         .then(data => {
