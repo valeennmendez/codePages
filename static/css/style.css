@@ -19,7 +19,7 @@ body{
 
 .contenedor{
     position: relative;
-    width: 80vw;;
+    width: 80vw;
 }
 
 .navbarra{
@@ -48,6 +48,10 @@ body{
     font-size: 1rem;
     width: 50%;
     margin: 0;
+}
+
+#bars{
+    display: none;
 }
 
 .title-navbar h5{
@@ -98,15 +102,9 @@ body{
     transition: 0.5s;
 }
 
-.dashboard.active{
+.dashboard.active, .patients.active, .appointments.active{
     background: #edededbd;
 }
-
-.patients.active{
-    background: #edededbd;
-}
-
-
 
 .menu ul li:hover a{
     color: black;
@@ -164,11 +162,13 @@ body{
 
 .tabla{
     width: 100%;
+    table-layout: fixed;
 }
 
 .tabla th{
     font-weight: 500;
     color: #000000af;
+    word-wrap:unset;
 }
 
 .tabla th, td{
@@ -177,11 +177,14 @@ body{
 
 .tabla td{
     border-top: 1px solid rgba(0, 0, 0, 0.142);
+    word-wrap: break-word;
 }
 
 .tabla_back{
     border: 1px solid rgba(0, 0, 0, 0.142);
     border-radius: .5rem;
+    width: 100%;
+    overflow-x: auto;
 }
 
 .tabla ul{
@@ -222,7 +225,7 @@ body{
 
 }
 
-.formulario{
+.forms{
     position: fixed;
     top: 100%;
     width: 80%;
@@ -234,53 +237,7 @@ body{
     transition: top 0.5s ease-in-out;
 }
 
-.formularioEdit{
-    position: fixed;
-    top: 100%;
-    width: 80%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: top 0.5s ease-in-out;
-}
-
-.formularioEdit.active{
-    top: 0;
-    z-index: 10;
-}
-
-.formCreateAppoinment{
-    position: fixed;
-    top: 100%;
-    width: 80%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: top 0.5s ease-in-out;
-}
-
-.formCreateAppoinment.active{
-    top: 0;
-    z-index: 10;
-}
-
-.formularioAppoinment{
-    position: fixed;
-    top: 100%;
-    width: 80%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: top 0.5s ease-in-out;
-}
-
-.formularioAppoinment.active{
+.forms.active{
     top: 0;
     z-index: 10;
 }
@@ -294,11 +251,6 @@ body{
     padding: 20px;
 }
 
-.formulario.active{
-    top: 0;
-    z-index: 10;
-}
-
 
 .titles-form{
     display: flex;
@@ -306,7 +258,7 @@ body{
     justify-content: space-between;
 }
 
-#closeFormBtn, #closeFormEditBtn, #closeFormAppBtn{
+.closeButton{
     text-decoration: none;
     color: black;
 }
@@ -386,6 +338,11 @@ body{
 
 }
 
+.iconDiv{
+    display: flex;
+    align-items: center;
+}
+
 .iconDiv:hover .closesesion{
     display: initial;
     
@@ -393,4 +350,121 @@ body{
 
 tr:hover{
     background-color: #edededbd;
+}
+
+#search{
+    position: relative;
+}
+
+#autocomplete-list{
+    list-style: none;
+    background-color: #ededed;
+    position: absolute;
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+}
+
+#autocomplete-list li{
+    padding: 10px 15px;
+}
+
+#autocomplete-list li:hover{
+    background-color: #dcdcdc;
+    cursor: pointer;
+}
+
+.fa-solid.fa-circle-info{
+    font-size: 1.2rem;
+}
+
+.barsMenu{
+    display: none;
+}
+
+@media(max-width: 990px) {
+    .lateral{
+        display: none;
+    }
+
+    body{
+        width: 100vw;    
+    }
+
+    .contenedor{
+        width: 100%;
+    }
+
+    .container-fluid{
+        display: none;
+    }
+
+    #bars{
+        display: block;
+        font-size: 1.3rem;
+        cursor: pointer;
+    }
+
+    .title-navbar{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 2.5rem;
+    }
+
+    .barsMenu{
+        display: block;
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.227);
+        z-index: 100;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        display: none;
+    }
+
+    .barsMenu.active{
+        display:flex
+    }
+
+    .barsOptions{
+        background-color: white;
+        width: 15rem;
+        height: 20rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .barsOptions ul li{
+        list-style: none;
+        padding: 1.2rem;
+    }
+
+    .barsOptions ul li a{
+        color: black;
+    }
+
+    .forms{
+        width: 100%;
+    }
+}
+
+@media (max-width: 733px) {
+    .tarjetas{
+        flex-direction: column;
+        align-items: center;
+        font-size: 0.5rem;
+    }
+
+
+}
+
+@media (max-width: 972px) {
+    .tabla ul{
+        display: flex;
+        flex-direction: column;
+    }
 }
