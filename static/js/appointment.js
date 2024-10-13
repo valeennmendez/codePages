@@ -53,7 +53,9 @@ function SearchPatientsForm(){
       const query = this.value;
     
       if (query.length > 1) {
-        fetch(`https://apipage-production-f781.up.railway.app/search-patient?p=${encodeURIComponent(query)}`)
+        fetch(`https://apipage-production-f781.up.railway.app/search-patient?p=${encodeURIComponent(query)}`,{
+             crenentials: "include"
+        })
           .then(response => response.json())
           .then(data => {
             autocompleteList.innerHTML = "";
