@@ -1,10 +1,10 @@
 console.log("Conectado...")
 
-const urlApi = "https://apipage-production-f781.up.railway.app/patients"
+const urlApi = "https://apipage.onrender.com/patients"
 
 
 function ValidateSession(){
-    fetch("https://apipage-production-f781.up.railway.app/validate",{
+    fetch("https://apipage.onrender.com/validate",{
         method: "GET",
         credentials: "include"
     })
@@ -48,7 +48,7 @@ function DeletePatients(){
 }
 
 function loadPatientDataApp(id){
-    fetch(`https://apipage-production-f781.up.railway.app/patients/${id}`,{
+    fetch(`https://apipage.onrender.com/patients/${id}`,{
         credentials: "include",
     })
     .then(response =>{
@@ -65,7 +65,7 @@ function loadPatientDataApp(id){
 }
 
 function loadPatientData(id){
-    fetch(`https://apipage-production-f781.up.railway.app/patients/${id}`,{
+    fetch(`https://apipage.onrender.com/patients/${id}`,{
         credentials: "include",
     })
     .then(response =>{
@@ -135,7 +135,7 @@ function EditPatients(){
 
             console.log("PATIENT EDIT DATA: ", patientData)
 
-            fetch(`https://apipage-production-f781.up.railway.app/edit/${idpatient}`,{
+            fetch(`https://apipage.onrender.com/edit/${idpatient}`,{
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"},
@@ -222,7 +222,7 @@ function CreatePatient(){
 
             console.log(fullnameP,emailP,dniP,phoneP)
 
-            fetch(`https://apipage-production-f781.up.railway.app/create`,{
+            fetch(`https://apipage.onrender.com/create`,{
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"},
@@ -291,7 +291,7 @@ function CreateAppointment(){
 
     function fetchAvilableHours(date){
         ValidateSession()
-        fetch(`https://apipage-production-f781.up.railway.app/available-hours?fecha=${date}`)
+        fetch(`https://apipage.onrender.com/available-hours?fecha=${date}`)
         .then(response => response.json())
         .then(data => {
             console.log(data)
@@ -354,7 +354,7 @@ function CreateAppointment(){
                 motivoconsulta: motivocons,
             }
 
-            fetch(`https://apipage-production-f781.up.railway.app/create-appointment`,{
+            fetch(`https://apipage.onrender.com/create-appointment`,{
                 method: "POST",
                 headers:{
                     "Content-Type": "application/json"
@@ -467,7 +467,7 @@ function searchPatient(){
         const query = searchInput.value
 
         if(query.length > 0){
-            fetch(`https://apipage-production-f781.up.railway.app/search-patient?p=${encodeURIComponent(query)}`)
+            fetch(`https://apipage.onrender.com/search-patient?p=${encodeURIComponent(query)}`)
                 .then(response => response.json())
                 .then(data => {
                     resultList.innerHTML = "";
