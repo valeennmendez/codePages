@@ -2,7 +2,7 @@ console.log("Conectado...")
 
 function GetAllAppointments(){
 
-    fetch(`https://apipage-production-f781.up.railway.app/appointments`,{
+    fetch(`https://apipage.onrender.com/appointments`,{
         method: "GET",
         credentials: "include"
     })
@@ -40,7 +40,7 @@ function CancelAppointments(){
     if(button){
         button.addEventListener("click", function(e){
             
-            fetch(`https://apipage-production-f781.up.railway.app/cancel-appointment`)
+            fetch(`https://apipage.onrender.com/cancel-appointment`)
         })
     }
 }
@@ -53,7 +53,7 @@ function SearchPatientsForm(){
       const query = this.value;
     
       if (query.length > 1) {
-        fetch(`https://apipage-production-f781.up.railway.app/search-patient?p=${encodeURIComponent(query)}`,{
+        fetch(`https://apipage.onrender.com/search-patient?p=${encodeURIComponent(query)}`,{
              crenentials: "include"
         })
           .then(response => response.json())
@@ -133,7 +133,7 @@ function AddNewAppointment(){
 
     console.log(appointmentData)
 
-    fetch(`https://apipage-production-f781.up.railway.app/create-appointment`,{
+    fetch(`https://apipage.onrender.com/create-appointment`,{
       method: "POST",
       headers:{
         "Content-Type": "application/json",
@@ -173,7 +173,7 @@ function LoadHours(){
 
 
   function fetchAvilableHours(date){
-      fetch(`https://apipage-production-f781.up.railway.app/available-hours?fecha=${date}`)
+      fetch(`https://apipage.onrender.com/available-hours?fecha=${date}`)
       .then(response => response.json())
       .then(data => {
           console.log(data)
@@ -203,7 +203,7 @@ function LoadHours(){
 }
 
 function ValidateSession(){
-  fetch("https://apipage-production-f781.up.railway.app/validate",{
+  fetch("https://apipage.onrender.com/validate",{
       method: "GET",
       credentials: "include"
   })
