@@ -1,10 +1,10 @@
 console.log("Conectado...")
 
-const urlApi = "https://apipage-production-f781.up.railway.app/patients"
+const urlApi = "https://apipage.onrender.com/patients"
 
 
 function ValidateSession(){
-    fetch("https://apipage-production-f781.up.railway.app/validate",{
+    fetch("https://apipage.onrender.com/validate",{
         method: "GET",
         credentials: "include"
     })
@@ -20,7 +20,7 @@ function CountPatients(){
     const contadorPatients = document.getElementById("totalPatients")
         
     if(contadorPatients){
-        fetch(`https://apipage-production-f781.up.railway.app/total-patients`,{
+        fetch(`https://apipage.onrender.com/total-patients`,{
             credentials: "include",
         })
         .then(response =>{
@@ -40,7 +40,7 @@ function AppointmentToday(){
     const cantCitas = document.getElementById("totalCitas")
 
     if(cantCitas){
-        fetch(`https://apipage-production-f781.up.railway.app/appointment-today`,{
+        fetch(`https://apipage.onrender.com/appointment-today`,{
             credentials: "include",
         })
         .then(response =>{
@@ -59,7 +59,7 @@ function AppointmentToday(){
 function AppointmentWeek(){
     const cantAppointments = document.getElementById("appointmentsWeek")
 
-    fetch(`https://apipage-production-f781.up.railway.app/appointments-week`,{
+    fetch(`https://apipage.onrender.com/appointments-week`,{
         credentials: "include",
     })
         .then(response =>{
@@ -81,7 +81,7 @@ function CloseSession(){
         closeSesion.addEventListener("click", function(e){
             e.preventDefault()
 
-            fetch("https://apipage-production-f781.up.railway.app/logout",{
+            fetch("https://apipage.onrender.com/logout",{
                 method: "POST",
                 credentials: "include"
             })
