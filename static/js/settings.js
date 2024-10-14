@@ -2,7 +2,7 @@ console.log("Conectado...")
 
 function GetAllAdmins(){
 
-    fetch(`https://apipage-production-f781.up.railway.app/admins`,{
+    fetch(`https://apipage.onrender.com/admins`,{
         method: "GET",
         credentials: "include"
     })
@@ -85,7 +85,7 @@ function ApproveAccount() {
             const adminID = button.getAttribute("data-id");
             console.log(adminID);
 
-            fetch(`https://apipage-production-f781.up.railway.app/approve-user/${adminID}`,{
+            fetch(`https://apipage.onrender.com/approve-user/${adminID}`,{
                 method: "POST",
                 credentials: "include",
             })
@@ -118,7 +118,7 @@ function DeclineAccount() {
             const adminID = button.getAttribute("data-id");
             console.log(adminID);
 
-            fetch(`https://apipage-production-f781.up.railway.app/decline-user/${adminID}`,{
+            fetch(`https://apipage.onrender.com/decline-user/${adminID}`,{
                 method: "POST",
                 credentials: "include",
             })
