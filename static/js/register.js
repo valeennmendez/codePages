@@ -28,7 +28,7 @@ function Register(){
             phone: phone
         }
 
-        fetch(`https://apipage-production-f781.up.railway.app/register`,{
+        fetch(`https://apipage.onrender.com/register`,{
             method: "POST",
             credentials: "include",
             headers:{
