@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         console.log(email, password)
 
-        fetch("https://apipage-production-f781.up.railway.app/login",{
+        fetch("https://apipage.onrender.com/login",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
