@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         console.log(email, password)
 
-        fetch("https://apipage.onrender.com/login",{
+        fetch("https://kind-katee-valenmendez-9428a141.koyeb.app/login",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
