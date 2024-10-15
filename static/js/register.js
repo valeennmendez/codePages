@@ -28,7 +28,7 @@ function Register(){
             phone: phone
         }
 
-        fetch(`https://apipage.onrender.com/register`,{
+        fetch(`https://kind-katee-valenmendez-9428a141.koyeb.app/register`,{
             method: "POST",
             credentials: "include",
             headers:{
