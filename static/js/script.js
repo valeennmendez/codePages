@@ -1,10 +1,10 @@
 console.log("Conectado...")
 
-const urlApi = "https://apipage.onrender.com/patients"
+const urlApi = "https://kind-katee-valenmendez-9428a141.koyeb.app/patients"
 
 
 function ValidateSession(){
-    fetch("https://apipage.onrender.com/validate",{
+    fetch("https://kind-katee-valenmendez-9428a141.koyeb.app/validate",{
         method: "GET",
         credentials: "include"
     })
@@ -20,7 +20,7 @@ function CountPatients(){
     const contadorPatients = document.getElementById("totalPatients")
         
     if(contadorPatients){
-        fetch(`https://apipage.onrender.com/total-patients`,{
+        fetch(`https://kind-katee-valenmendez-9428a141.koyeb.app/total-patients`,{
             credentials: "include",
         })
         .then(response =>{
@@ -40,7 +40,7 @@ function AppointmentToday(){
     const cantCitas = document.getElementById("totalCitas")
 
     if(cantCitas){
-        fetch(`https://apipage.onrender.com/appointment-today`,{
+        fetch(`https://kind-katee-valenmendez-9428a141.koyeb.app/appointment-today`,{
             credentials: "include",
         })
         .then(response =>{
@@ -59,7 +59,7 @@ function AppointmentToday(){
 function AppointmentWeek(){
     const cantAppointments = document.getElementById("appointmentsWeek")
 
-    fetch(`https://apipage.onrender.com/appointments-week`,{
+    fetch(`https://kind-katee-valenmendez-9428a141.koyeb.app/appointments-week`,{
         credentials: "include",
     })
         .then(response =>{
@@ -81,7 +81,7 @@ function CloseSession(){
         closeSesion.addEventListener("click", function(e){
             e.preventDefault()
 
-            fetch("https://apipage.onrender.com/logout",{
+            fetch("https://kind-katee-valenmendez-9428a141.koyeb.app/logout",{
                 method: "POST",
                 credentials: "include"
             })
