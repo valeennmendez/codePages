@@ -1,10 +1,10 @@
 console.log("Conectado...")
 
-const urlApi = "https://apipage.onrender.com/patients"
+const urlApi = "https://kind-katee-valenmendez-9428a141.koyeb.app/patients"
 
 
 function ValidateSession(){
-    fetch("https://apipage.onrender.com/validate",{
+    fetch("https://kind-katee-valenmendez-9428a141.koyeb.app/validate",{
         method: "GET",
         credentials: "include"
     })
@@ -48,7 +48,7 @@ function DeletePatients(){
 }
 
 function loadPatientDataApp(id){
-    fetch(`https://apipage.onrender.com/patients/${id}`,{
+    fetch(`https://kind-katee-valenmendez-9428a141.koyeb.app/patients/${id}`,{
         credentials: "include",
     })
     .then(response =>{
@@ -65,7 +65,7 @@ function loadPatientDataApp(id){
 }
 
 function loadPatientData(id){
-    fetch(`https://apipage.onrender.com/patients/${id}`,{
+    fetch(`https://kind-katee-valenmendez-9428a141.koyeb.app/patients/${id}`,{
         credentials: "include",
     })
     .then(response =>{
@@ -135,7 +135,7 @@ function EditPatients(){
 
             console.log("PATIENT EDIT DATA: ", patientData)
 
-            fetch(`https://apipage.onrender.com/edit/${idpatient}`,{
+            fetch(`https://kind-katee-valenmendez-9428a141.koyeb.app/edit/${idpatient}`,{
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"},
@@ -222,7 +222,7 @@ function CreatePatient(){
 
             console.log(fullnameP,emailP,dniP,phoneP)
 
-            fetch(`https://apipage.onrender.com/create`,{
+            fetch(`https://kind-katee-valenmendez-9428a141.koyeb.app/create`,{
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"},
@@ -291,7 +291,7 @@ function CreateAppointment(){
 
     function fetchAvilableHours(date){
         ValidateSession()
-        fetch(`https://apipage.onrender.com/available-hours?fecha=${date}`)
+        fetch(`https://kind-katee-valenmendez-9428a141.koyeb.app/available-hours?fecha=${date}`)
         .then(response => response.json())
         .then(data => {
             console.log(data)
@@ -354,7 +354,7 @@ function CreateAppointment(){
                 motivoconsulta: motivocons,
             }
 
-            fetch(`https://apipage.onrender.com/create-appointment`,{
+            fetch(`https://kind-katee-valenmendez-9428a141.koyeb.app/create-appointment`,{
                 method: "POST",
                 headers:{
                     "Content-Type": "application/json"
@@ -467,7 +467,7 @@ function searchPatient(){
         const query = searchInput.value
 
         if(query.length > 0){
-            fetch(`https://apipage.onrender.com/search-patient?p=${encodeURIComponent(query)}`)
+            fetch(`https://kind-katee-valenmendez-9428a141.koyeb.app/search-patient?p=${encodeURIComponent(query)}`)
                 .then(response => response.json())
                 .then(data => {
                     resultList.innerHTML = "";
